@@ -5,6 +5,7 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 
 project.ext.mainClassName = "com.mygdx.game.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../core/assets");
+project.ext.mainClass = 'com.mygdx.game.desktop.DesktopLauncher'
 
 task run(dependsOn: classes, type: JavaExec) {
     main = project.mainClassName
