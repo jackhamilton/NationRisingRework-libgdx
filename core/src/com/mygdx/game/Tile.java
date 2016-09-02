@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.flowpowered.noise.NoiseQuality;
 import com.flowpowered.noise.module.source.Perlin;
