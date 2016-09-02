@@ -7,12 +7,12 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import java.awt.Dimension;
 import java.awt.Point;
-import java.util.Random;
 
 public class Main extends ApplicationAdapter {
     
@@ -26,6 +26,7 @@ public class Main extends ApplicationAdapter {
         private int viewX = 1920, viewY = 1080;
         private Tile[][] tiles;
         private Point clickStore = null;
+        private Sprite uiBar;
 	
 	@Override
 	public void create () {
@@ -33,6 +34,9 @@ public class Main extends ApplicationAdapter {
                 camera = new OrthographicCamera();
                 viewport = new FitViewport(viewX, viewY, camera);
                 tiles = Tile.generateMap(mapSizeX, mapSizeY, new Dimension(viewX, viewY));
+                manager.load("UI/UI.png", Texture.class);
+                manager.finishLoading();
+                uiBar = new Sprite(manager.get("UI/UI.png", Texture.class));
 	}
 
 	@Override
@@ -103,6 +107,7 @@ public class Main extends ApplicationAdapter {
                         tiles[x][y].getSprite().draw(batch);
                     }
                 }
+                uiBar.draw(batch);
 		batch.end();
 	}
 	
